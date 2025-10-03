@@ -1,0 +1,4 @@
+./venv/
+./DJANGOPRJCT/AI2/db.sqlite3
+./DJANGOPRJCT/AI2/papers/
+./.vscode/
