@@ -39,7 +39,8 @@ class CONFERENCE(models.Model):
     def clean(self):
         if self.start_date and self.end_date:
             if self.start_date > self.end_date:
-                raise ValidationError("Start date must be before end date.")    
+                raise ValidationError("Start date must be before end date.")  
+    
         
     
 
@@ -67,3 +68,4 @@ class SUBMISSION(models.Model):
         if self.submission_date:
             if self.conference.start_date < timezone.now().date() and self:
                 raise ValidationError("The conference has already started.")
+    
