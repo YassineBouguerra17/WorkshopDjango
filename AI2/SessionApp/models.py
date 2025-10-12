@@ -26,8 +26,7 @@ class SESSION(models.Model):
             if not (self.conference.start_date <= self.session_day<= self.conference.end_date):
                         raise ValidationError({"session_day": "Session day must be between conference start date and end date."})
             self.verif_start_end_time()
-    def __str__(self):
-        return self.name  
+    
  
        
     

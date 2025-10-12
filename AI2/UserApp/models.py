@@ -53,6 +53,5 @@ class ORGANIZINGCOMITEE(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey("UserApp.User",on_delete=models.CASCADE,related_name='committees')
     conference = models.ForeignKey('ConferenceApp.CONFERENCE',on_delete=models.CASCADE,related_name='committees')
-    def __str__(self):
-        return self.name  
+    
 

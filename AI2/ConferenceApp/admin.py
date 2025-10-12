@@ -6,7 +6,13 @@ admin.site.site_header = 'Conference Management 25/26'
 admin.site.index_title = 'Conference Management 25/26'         
 
 """"admin.site.register(CONFERENCE)"""
-admin.site.register(SUBMISSION)
+@admin.register(SUBMISSION)
+class SUBMISSIONAdmin(admin.ModelAdmin):
+    list_display = ('submission_id', 'title', 'status', 'payed', 'created_at', 'updated_at')
+    search_fields = ('title', 'status', 'payed')
+    list_filter = ('status', 'payed')
+    date_hierarchy = 'created_at'
+    readonly_fields = ('created_at', 'updated_at')
 
 class submissionInline(admin.StackedInline):
     model = SUBMISSION
