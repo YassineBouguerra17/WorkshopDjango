@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>liste des conference</h1>
 <a href="{% url 'add_conference'  %}">Ajouter une conference</a>
 <table border="1">
@@ -14,3 +16,4 @@
     </tr>
     {% endfor %}
 </table>
+{% endblock %}

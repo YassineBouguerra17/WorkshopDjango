@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 {% if view.object.pk %}
 <h1>formulaire de modification {{object.name}}</h1>
 {% else %}
@@ -8,3 +11,5 @@
     {{form.as_p}}
     <button type="submit">Ajouter</button>
 </form>
+
+{% endblock %}
