@@ -1,7 +1,7 @@
 from django import forms
 from .models import USER
-
-class registerUserForm(forms.ModelForm):
+from django.contrib.auth.forms import UserCreationForm
+class registerUserForm(UserCreationForm):
     class Meta:
         model = USER
         fields = ['username','first_name','last_name','email','affiliation','nationality','password1','password2']
@@ -22,3 +22,10 @@ class registerUserForm(forms.ModelForm):
                 }
             )
         }
+
+def save(self,commit = True):
+    user = super().save(commit=False)
+    user.role = "participant"
+    if commit:
+        user.save()
+    return user
