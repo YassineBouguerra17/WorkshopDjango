@@ -2,6 +2,8 @@
 {% block content %}
 <h1>liste des conference</h1>
 <a href="{% url 'add_conference'  %}">Ajouter une conference</a>
+<a href="{% url 'add_submission' %}?conference={{ c.pk }}">Ajouter une soumission</a>
+
 <table border="1">
     <tr><td>Title</td><td>Theme</td><td>date de conference</td></tr>
     {% for c in liste %}
@@ -13,7 +15,11 @@
             {% if user.is_authenticated and user.role == "comitee" %}
         <a href="{% url 'edit_conference' c.pk %}">Update</a>
         <a href="{% url 'conference_delete' c.pk %}">Delete</a></td>
+        
             {% endif %}
+           <td>
+  <a href="{% url 'list_submissions' conference_id=c.pk %}">Mes soumissions</a>
+</td>
     </tr>
     {% endfor %}
 </table>
