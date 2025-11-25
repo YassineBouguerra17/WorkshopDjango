@@ -19,6 +19,7 @@ urlpatterns = [
     path("submissions/<str:pk>/edit/", submissionUpdate.as_view(), name="update_submission"),
 
     path("submissions/<str:pk>/", views.submissionDetail.as_view(), name="submission_detail"),
+    
    
 ]
 
